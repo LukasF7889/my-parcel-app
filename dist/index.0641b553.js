@@ -619,6 +619,56 @@ const markerIcon = (0, _leafletDefault.default).icon({
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map); // add a tile layer to the map, the tiles are those images that make up the map
+const myLocations = [
+    {
+        name: "WBS CODING SCHOOL",
+        location: [
+            52.457131,
+            13.54007
+        ],
+        description: "The best coding school in the world"
+    },
+    {
+        name: "Alexanderplatz",
+        location: [
+            52.521918,
+            13.413215
+        ],
+        description: "The most famous square in Berlin"
+    },
+    {
+        name: "Brandenburg Gate",
+        location: [
+            52.516275,
+            13.377704
+        ],
+        description: "The most famous gate in Berlin"
+    },
+    {
+        name: "Berlin Wall",
+        location: [
+            52.507541,
+            13.39032
+        ],
+        description: "The most famous wall in Berlin"
+    },
+    {
+        name: "Lukas Home",
+        location: [
+            53.46642,
+            9.972748
+        ],
+        description: "Hello here is my house"
+    }
+];
+myLocations.forEach((location)=>{
+    (0, _leafletDefault.default).marker(location.location, {
+        icon: markerIcon
+    }).bindPopup(location.description).addTo(map);
+});
+// Set the view to the bounds of all markers
+const bounds = (0, _leafletDefault.default).latLngBounds(myLocations.map((location)=>location.location));
+map.fitBounds(bounds);
 
 },{"leaflet":"iFbO2","leaflet/dist/leaflet.css":"6JhOO","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iFbO2":[function(require,module,exports,__globalThis) {
 /* @preserve
